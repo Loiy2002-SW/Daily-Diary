@@ -14,7 +14,7 @@ namespace DiaryManager
             while (choice != "E")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("R. Read Diary");
                 Console.WriteLine("A. Add New Entry");
@@ -22,7 +22,7 @@ namespace DiaryManager
                 Console.WriteLine("C. Count All Lines");
                 Console.WriteLine("S. Search Entries");
                 Console.WriteLine("E. Exit");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
 
                 choice = Console.ReadLine().ToUpper();
 
@@ -47,9 +47,9 @@ namespace DiaryManager
                         return;
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("============================");
+                        Console.WriteLine("=================================");
                         Console.WriteLine("Invalid choice. Please try again.");
-                        Console.WriteLine("============================");
+                        Console.WriteLine("=================================");
                         Console.ForegroundColor = ConsoleColor.Blue;
                         break;
                 }
@@ -74,18 +74,18 @@ namespace DiaryManager
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.WriteLine("Diary file not found.");
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
             }
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine($"Error reading diary file: {ex.Message}");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.ForegroundColor = ConsoleColor.Blue;
             }
         }
@@ -95,40 +95,40 @@ namespace DiaryManager
             try
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine("Enter the date (YYYY-MM-DD):");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 string date = Console.ReadLine();
 
                 while (!IsValidDate(date))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.WriteLine("Invalid date format. Please use YYYY-MM-DD.");
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.ForegroundColor = ConsoleColor.Blue;
                     date = Console.ReadLine();
                 }
 
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine("Enter the content:");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 string content = Console.ReadLine();
 
                 string formattedEntry = $"{Environment.NewLine}{date}{Environment.NewLine}{content}{Environment.NewLine}";
                 File.AppendAllText(DiaryFilePath, formattedEntry);
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine("Entry added successfully.");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
             }
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine($"Error adding entry: {ex.Message}");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.ForegroundColor = ConsoleColor.Blue;
             }
         }
@@ -138,17 +138,17 @@ namespace DiaryManager
             try
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine("Enter the date (YYYY-MM-DD) of the entry to delete:");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 string date = Console.ReadLine();
 
                 while (!IsValidDate(date))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.WriteLine("Invalid date format. Please use YYYY-MM-DD.");
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.ForegroundColor = ConsoleColor.Blue;
                     date = Console.ReadLine();
                 }
@@ -175,34 +175,34 @@ namespace DiaryManager
                     if (!entryFound)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("============================");
+                        Console.WriteLine("=================================");
                         Console.WriteLine("No entry found for the specified date.");
-                        Console.WriteLine("============================");
+                        Console.WriteLine("=================================");
                         Console.ForegroundColor = ConsoleColor.Blue;
                         return;
                     }
 
                     File.WriteAllLines(DiaryFilePath, lines);
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.WriteLine("Entry deleted successfully.\n");
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.WriteLine("Diary file not found.");
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
             }
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine($"Error deleting entry: {ex.Message}");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.ForegroundColor = ConsoleColor.Blue;
             }
         }
@@ -216,25 +216,25 @@ namespace DiaryManager
                     int lineCount = File.ReadAllLines(DiaryFilePath).Length;
 
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.WriteLine($"Total number of lines: {lineCount}\n");
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.WriteLine("Diary file not found.");
-                    Console.WriteLine("============================");
+                    Console.WriteLine("=================================");
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
             }
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.WriteLine($"Error counting lines: {ex.Message}");
-                Console.WriteLine("============================");
+                Console.WriteLine("=================================");
                 Console.ForegroundColor = ConsoleColor.Blue;
             }
         }
