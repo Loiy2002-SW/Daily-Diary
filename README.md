@@ -6,6 +6,7 @@ The Daily Diary Console Application allows users to manage a daily diary text fi
 
 ![Output example](DiaryManager/output.PNG)
 
+---
 
 ## Features
 
